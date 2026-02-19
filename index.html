@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mecanografía</title>
+    <link rel="stylesheet" href="estilos.css">
+    <script src="script.js"></script>
+    <!-- <script src="script.js" defer></script>
+    Se descarga en segundo plano y se ejecuta cuando termina de cargarse el html -->
+</head>
+<body>
+     <!-- un texto de mecanografía con un contador de 30seg q empieza cuando empiezas a escribir
+     si escribes la misma letra se pone verde y sino rojo
+     luego aparece wpm y accuracy un reload para empezar de nuevo -->
+     <main>
+        <section id="game">
+            <time datetime="30s" id="timer">30</time>
+            <div id="texto-contenedor"></div>
+            <input type="text" id="escritura-contenedor" autofocus>
+        </section>
+        <section id="resultados" style="display: none;">
+            <h2>WPM</h2>
+            <h3 id="resultadosWPM">Letras correctas:</h3>
+            <h2>Accuracy</h2>
+            <h3 id="resultadosAccuracy">Probabilidad:</h3>
+            <button id="reload">Reiniciar</button>
+        </section>
+     </main>
+</body>
+</html>
