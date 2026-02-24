@@ -1,6 +1,6 @@
 class Game {
   constructor(textoFijo) {
-    // 1. DOM - Referencias a elementos
+    // 1. DOM. Referencias a elementos
     this.contenedorTexto = document.getElementById("texto-contenedor");
     this.resultadosWPM = document.getElementById("resultadosWPM");
     this.resultadosAccuracy = document.getElementById("resultadosAccuracy");
@@ -16,7 +16,7 @@ class Game {
     this.tiempoInicio = null;
     this.juegoFinalizado = false;
 
-    // 6. Eventlisteners (Mantenemos tu lógica de eventos aquí)
+    // 6. Eventlisteners
     this.escritura.addEventListener("input", () => {
       if (this.juegoFinalizado) return;
 
@@ -35,7 +35,6 @@ class Game {
     // 10. Botón reiniciar
     this.btnReiniciar.addEventListener("click", () => this.reiniciarJuego());
 
-    // Inicializar el primer estado
     this.iniciarJuego();
   }
 
@@ -49,13 +48,12 @@ class Game {
 
   // 4. Funcion contador
   contador() {
-    // IMPORTANTE: Usamos arrow function para que 'this' apunte a la clase
     this.intervalo = setInterval(() => {
       this.temporizador--;
       this.tiempo.innerText = this.temporizador;
      
       if (this.temporizador <= 0) {
-        clearInterval(this.intervalo); // Corregido: clearInterval es global
+        clearInterval(this.intervalo); 
         this.finalizarJuego();
       }
     }, 1000);
@@ -115,7 +113,7 @@ class Game {
 
   // 9. función de reiniciar el juego
   reiniciarJuego() {
-    clearInterval(this.intervalo); // Corregido: clearInterval es global
+    clearInterval(this.intervalo);
 
     this.temporizador = 30;
     this.intervalo = null;
@@ -135,7 +133,6 @@ class Game {
   }
 }
 
-// Inicialización corregida
 window.onload = () => {
   const texto = "Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.";
   new Game(texto);
